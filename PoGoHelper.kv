@@ -1,0 +1,129 @@
+# File name: PoGoHelper.py
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+<BoxLayout>:
+    padding: 5
+    spacing: 5
+    height: 0
+
+<Button>:
+    font_size: 12
+    size_hint_y: 0.2
+    halign: "center"
+    valign: "middle"
+    color: 0,1,0,1
+
+<Label>:
+    font_size: 12
+    size_hint_y: 0.2
+    halign: "center"
+    valign: "middle"
+
+<TextInput>:
+    font_size: 16
+    size_hint_y: 0.1
+    color: 1,0,0,1
+    multiline: False
+
+ScreenManagement:
+    transition: FadeTransition()
+    TypeScreen:
+    DPSScreen:
+    RanksScreen:
+
+
+<TypeScreen>:
+    name: "typematch"
+
+    BoxLayout:
+        Label:
+            text: "Type\nMatch-ups"
+            color: 0,0,1,1
+            pos_hint: {"top": 1}
+        Button:
+            text: "Pokemon\nDPS"
+            pos_hint: {"top": 1}
+            on_release: app.root.current = "pokemondps"
+        Button:
+            text: "Rankings"
+            pos_hint: {"top": 1}
+            on_release: app.root.current = "rankings"
+
+<DPSScreen>:
+    name: "pokemondps"
+    id: dps_screen
+
+    FloatLayout:
+        BoxLayout:
+            Button:
+                text: "Type\nMatch-ups"
+                pos_hint: {"top": 1}
+                on_release: app.root.current = "typematch"
+            Label:
+                text: "Pokemon\nDPS"
+                color: 0,0,1,1
+                pos_hint: {"top": 1}
+            Button:
+                text: "Rankings"
+                pos_hint: {"top": 1}
+                on_release: app.root.current = "rankings"
+        Label:
+            id: dps
+            font_size: 32
+            color: 1,1,1,1
+            text: "0 DPS"
+            pos_hint: {"top": 0.8}
+        BoxLayout:
+            Label:
+                text: "Your Pokemon:"
+                size_hint_y: 0.1
+                pos_hint: {"top": 0.6}
+            TextInput:
+                id: my_pokemon
+                pos_hint: {"top": 0.6}
+        BoxLayout:
+            Label:
+                text: "Quick move:"
+                size_hint_y: 0.1
+                pos_hint: {"top": 0.5}
+            TextInput:
+                id: my_quick_move
+                pos_hint: {"top": 0.5}
+        BoxLayout:
+            Label:
+                text: "Charge move:"
+                size_hint_y: 0.1
+                pos_hint: {"top": 0.4}
+            TextInput:
+                id: my_charge_move
+                pos_hint: {"top": 0.4}
+        BoxLayout:
+            Label:
+                text: "Opponent's\nPokemon:"
+                size_hint_y: 0.1
+                pos_hint: {"top": 0.3}
+            TextInput:
+                id: my_opponent
+                pos_hint: {"top": 0.3}
+        BoxLayout:
+            Button:
+                text: "Calculate DPS"
+                color: 1,0,0,1
+                on_press: dps.text = str(root.calculate_dps(my_pokemon.text, my_quick_move.text, my_charge_move.text, my_opponent.text)) + " DPS"
+
+<RanksScreen>:
+    name: "rankings"
+
+    BoxLayout:
+        Button:
+            on_release: app.root.current = "typematch"
+            text: "Type\nMatch-ups"
+            pos_hint: {"top": 1}
+        Button:
+            on_release: app.root.current = "pokemondps"
+            text: "Pokemon\nDPS"
+            pos_hint: {"top": 1}
+        Label:
+            text: "Rankings"
+            color: 0,0,1,1
+            pos_hint: {"top": 1}
