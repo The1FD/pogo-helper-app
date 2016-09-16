@@ -1,8 +1,8 @@
 #: import FadeTransition kivy.uix.screenmanager.FadeTransition
 
 <BoxLayout>:
-    padding: 5
-    spacing: 5
+    padding: 4
+    spacing: 2
     height: 0
 
 <Button>:
@@ -29,8 +29,8 @@
     keep_ratio: False
 
 <GridLayout>:
-    padding: 5
-    spacing: 5
+    padding: 4
+    spacing: 2
 
 ScreenManagement:
     transition: FadeTransition()
@@ -76,7 +76,7 @@ ScreenManagement:
                 on_release: app.root.current = "rankings"
         Label:
             id: dps
-            font_size: 32
+            font_size: 28
             color: 1,1,1,1
             text: "0 DPS"
             pos_hint: {"top": 0.8}
