@@ -1,7 +1,7 @@
 #: import FadeTransition kivy.uix.screenmanager.FadeTransition
 
 <BoxLayout>:
-    padding: 4
+    padding: 2
     spacing: 2
     height: 0
 
@@ -19,7 +19,7 @@
     valign: "middle"
 
 <TextInput>:
-    font_size: 16
+    font_size: 14
     size_hint_y: 0.1
     color: 1,0,0,1
     multiline: False
@@ -29,14 +29,14 @@
     keep_ratio: False
 
 <GridLayout>:
-    padding: 4
+    padding: 2
     spacing: 2
 
 ScreenManagement:
     transition: FadeTransition()
     TypeScreen:
     DPSScreen:
-    RanksScreen:
+    QuizScreen:
 
 
 <TypeScreen>:
@@ -52,9 +52,9 @@ ScreenManagement:
             pos_hint: {"top": 1}
             on_release: app.root.current = "pokemondps"
         Button:
-            text: "Rankings"
+            text: "Quiz"
             pos_hint: {"top": 1}
-            on_release: app.root.current = "rankings"
+            on_release: app.root.current = "quiz"
 
 <DPSScreen>:
     name: "pokemondps"
@@ -71,12 +71,12 @@ ScreenManagement:
                 color: 0,0,1,1
                 pos_hint: {"top": 1}
             Button:
-                text: "Rankings"
+                text: "Quiz"
                 pos_hint: {"top": 1}
-                on_release: app.root.current = "rankings"
+                on_release: app.root.current = "quiz"
         Label:
             id: dps
-            font_size: 28
+            font_size: 24
             color: 1,1,1,1
             text: "0 DPS"
             pos_hint: {"top": 0.8}
@@ -118,8 +118,8 @@ ScreenManagement:
                 color: 1,0,0,1
                 on_press: dps.text = root.get_dps(my_pokemon.text, my_quick_move.text, my_charge_move.text, my_opponent.text)
 
-<RanksScreen>:
-    name: "rankings"
+<QuizScreen>:
+    name: "quiz"
 
     FloatLayout:
         BoxLayout:
@@ -132,58 +132,122 @@ ScreenManagement:
                 text: "Pokemon\nDPS"
                 pos_hint: {"top": 1}
             Label:
-                text: "Rankings"
+                text: "Quiz"
                 color: 0,0,1,1
                 pos_hint: {"top": 1}
         Label:
-
+            pos_hint: {"top": 0.8}
+            text: "Classy"
         GridLayout:
             pos_hint: {"top": 0.6}
             size_hint_y: 0.4
             cols: 4
-            Image:
+            Button:
+                on_press: normal.source = "blank.png"
+            Button:
+                on_press: fire.source = "blank.png"
+            Button:
+                on_press: water.source = "blank.png"
+            Button:
+                on_press: grass.source = "blank.png"
+
+            Button:
+                on_press: electric.source = "blank.png"
+            Button:
+                on_press: ice.source = "blank.png"
+            Button:
+                on_press: fighting.source = "blank.png"
+            Button:
+                on_press: poison.source = "blank.png"
+
+            Button:
+                on_press: ground.source = "blank.png"
+            Button:
+                on_press: flying.source = "blank.png"
+            Button:
+                on_press: psychic.source = "blank.png"
+            Button:
+                on_press: bug.source = "blank.png"
+
+            Button:
+                on_press: rock.source = "blank.png"
+            Button:
+                on_press: ghost.source = "blank.png"
+            Button:
+                on_press: dragon.source = "blank.png"
+            Button:
+                on_press: dark.source = "blank.png"
+
+            Button:
+                on_press: steel.source = "blank.png"
+            Button:
+                on_press: fairy.source = "blank.png"
+            Button:
+                on_press: none.source = "blank.png"
+        GridLayout:
+            pos_hint: {"top": 0.6}
+            size_hint_y: 0.4
+            cols: 4
+            Image
+                id: normal
                 source: "normal.png"
             Image:
+                id: fire
                 source: "fire.png"
             Image:
+                id: water
                 source: "water.png"
+            Image:
+                id: grass
+                source: "grass.png"
 
             Image:
-                source: "grass.png"
-            Image:
+                id: electric
                 source: "electric.png"
             Image:
+                id: ice
                 source: "ice.png"
-
             Image:
+                id: fighting
                 source: "fighting.png"
             Image:
+                id: poison
                 source: "poison.png"
-            Image:
-                source: "ground.png"
 
             Image:
+                id: ground
+                source: "ground.png"
+            Image:
+                id: flying
                 source: "flying.png"
             Image:
+                id: psychic
                 source: "psychic.png"
             Image:
+                id: bug
                 source: "bug.png"
 
             Image:
+                id: rock
                 source: "rock.png"
             Image:
+                id: ghost
                 source: "ghost.png"
             Image:
+                id: dragon
                 source: "dragon.png"
+            Image:
+                id: dark
+                source: "dark.png"
 
             Image:
-                source: "dark.png"
-            Image:
+                id: steel
                 source: "steel.png"
             Image:
+                id: fairy
                 source: "fairy.png"
-
             Image:
+                id: none
                 source: "none.png"
             Image:
                 source: "blank.png"
