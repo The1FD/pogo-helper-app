@@ -114,6 +114,7 @@ ScreenManagement:
                 pos_hint: {"top": 0.3}
         BoxLayout:
             Button:
+                font_size: 16
                 text: "Calculate DPS"
                 color: 1,0,0,1
                 on_press: dps.text = root.get_dps(my_pokemon.text, my_quick_move.text, my_charge_move.text, my_opponent.text)
@@ -136,54 +137,91 @@ ScreenManagement:
                 color: 0,0,1,1
                 pos_hint: {"top": 1}
         Label:
+            id: question
             pos_hint: {"top": 0.8}
-            text: "Classy"
+            text: root.ask_question()
         GridLayout:
             pos_hint: {"top": 0.6}
             size_hint_y: 0.4
             cols: 4
             Button:
                 on_press: normal.source = "blank.png"
+                on_press: none.source = "none.png"
             Button:
                 on_press: fire.source = "blank.png"
+                on_press: none.source = "none.png"
             Button:
                 on_press: water.source = "blank.png"
+                on_press: none.source = "none.png"
             Button:
                 on_press: grass.source = "blank.png"
+                on_press: none.source = "none.png"
 
             Button:
                 on_press: electric.source = "blank.png"
+                on_press: none.source = "none.png"
             Button:
                 on_press: ice.source = "blank.png"
+                on_press: none.source = "none.png"
             Button:
                 on_press: fighting.source = "blank.png"
+                on_press: none.source = "none.png"
             Button:
                 on_press: poison.source = "blank.png"
+                on_press: none.source = "none.png"
 
             Button:
                 on_press: ground.source = "blank.png"
+                on_press: none.source = "none.png"
             Button:
                 on_press: flying.source = "blank.png"
+                on_press: none.source = "none.png"
             Button:
                 on_press: psychic.source = "blank.png"
+                on_press: none.source = "none.png"
             Button:
                 on_press: bug.source = "blank.png"
+                on_press: none.source = "none.png"
 
             Button:
                 on_press: rock.source = "blank.png"
+                on_press: none.source = "none.png"
             Button:
                 on_press: ghost.source = "blank.png"
+                on_press: none.source = "none.png"
             Button:
                 on_press: dragon.source = "blank.png"
+                on_press: none.source = "none.png"
             Button:
                 on_press: dark.source = "blank.png"
+                on_press: none.source = "none.png"
 
             Button:
                 on_press: steel.source = "blank.png"
+                on_press: none.source = "none.png"
             Button:
                 on_press: fairy.source = "blank.png"
+                on_press: none.source = "none.png"
             Button:
                 on_press: none.source = "blank.png"
+                on_press: normal.source = "normal.png"
+                on_press: fire.source = "fire.png"
+                on_press: water.source = "water.png"
+                on_press: grass.source = "grass.png"
+                on_press: electric.source = "electric.png"
+                on_press: ice.source = "ice.png"
+                on_press: fighting.source = "fighting.png"
+                on_press: poison.source = "poison.png"
+                on_press: ground.source = "ground.png"
+                on_press: flying.source = "flying.png"
+                on_press: psychic.source = "psychic.png"
+                on_press: bug.source = "bug.png"
+                on_press: rock.source = "rock.png"
+                on_press: ghost.source = "ghost.png"
+                on_press: dragon.source = "dragon.png"
+                on_press: dark.source = "dark.png"
+                on_press: steel.source = "steel.png"
+                on_press: fairy.source = "fairy.png"
         GridLayout:
             pos_hint: {"top": 0.6}
             size_hint_y: 0.4
@@ -251,3 +289,36 @@ ScreenManagement:
                 source: "none.png"
             Image:
                 source: "blank.png"
+        BoxLayout:
+            BoxLayout:
+                Button:
+                    font_size: 16
+                    color: 1,0,0,1
+                    text: "Check\nanswer"
+                Label:
+                    font_size: 24
+                    text: "F-"
+            Button:
+                font_size: 16
+                color: 1,0,0,1
+                text: "New question"
+                on_press: question.text = root.ask_question()
+                on_press: normal.source = "normal.png"
+                on_press: fire.source = "fire.png"
+                on_press: water.source = "water.png"
+                on_press: grass.source = "grass.png"
+                on_press: electric.source = "electric.png"
+                on_press: ice.source = "ice.png"
+                on_press: fighting.source = "fighting.png"
+                on_press: poison.source = "poison.png"
+                on_press: ground.source = "ground.png"
+                on_press: flying.source = "flying.png"
+                on_press: psychic.source = "psychic.png"
+                on_press: bug.source = "bug.png"
+                on_press: rock.source = "rock.png"
+                on_press: ghost.source = "ghost.png"
+                on_press: dragon.source = "dragon.png"
+                on_press: dark.source = "dark.png"
+                on_press: steel.source = "steel.png"
+                on_press: fairy.source = "fairy.png"
+                on_press: none.source = "none.png"
