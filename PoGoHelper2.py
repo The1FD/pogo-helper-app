@@ -1,5 +1,5 @@
-from math import ceil
-
+from math import ceil, floor
+from random import randint
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
@@ -630,7 +630,7 @@ charge_moves = {"aerial ace": [30.0, 2.9, 25, 0.05],
                 "water pulse": [35.0, 3.3, 25, 0.05],
                 "wrap": [25.0, 4.0, 20, 0.05],
                 "x-scissor": [35.0, 2.1, 33, 0.05],
-                "none": [0.0, 1.0, 0, 0.0]}
+                "none": [0.0, 10.0, 0, 0.0]}
 
 TYPES = [NORMAL, FIRE, WATER, GRASS, ELECTRIC, ICE, FIGHTING, POISON, GROUND,
          FLYING, PSYCHIC, BUG, ROCK, GHOST, DRAGON, DARK, STEEL, FAIRY, NONE]
@@ -697,13 +697,13 @@ nve_multiplier = 0.8
 
 
 def calculate_dps(pokemon, quick_move, charge_move, opponent):
-    tap_dmg = quick_moves[quick_move][dmg]  # saves a lot of typing
-    tap_dur = quick_moves[quick_move][dur]  # and keeps original data safe
+    tap_dmg = floor(0.5 * quick_moves[quick_move][dmg]) + 1
+    tap_dur = quick_moves[quick_move][dur]  # saves typing and keeps original data safe
     tap_nrg = quick_moves[quick_move][nrg]  # this is very convenient, trust me
-    hold_dmg = charge_moves[charge_move][dmg]
+    hold_dmg = floor(0.5 * charge_moves[charge_move][dmg]) + 1
     hold_dur = charge_moves[charge_move][dur]
     hold_nrg = charge_moves[charge_move][nrg]
-    crit_chance = charge_moves[charge_move][crit]
+    crit_chance = 0  # charge_moves[charge_move][crit]
     hold_dmg += hold_dmg * crit_multiplier * crit_chance
     user_pokemon_type = get_pokemon_type(pokemon)
     opponent_pokemon_type = get_pokemon_type(opponent)
@@ -737,7 +737,7 @@ def calculate_dps(pokemon, quick_move, charge_move, opponent):
     hold_dps = hold_dmg / hold_dur
     if tap_dps >= hold_dps:
         # print("Do not use your Pokemon's charge move.")
-        return str(round(tap_dps, 2)) + " DPS\nquick move only"  # insert true formula here
+        return str(round(tap_dps, 2)) + " DPS\ntap only"
     elif hold_nrg == 100:
         taps = ceil(100 / tap_nrg)
         # print("It takes", taps, "taps to get one charge.")
@@ -786,7 +786,20 @@ class DPSScreen(Screen):
     pass
 
 
-class RanksScreen(Screen):
+class QuizScreen(Screen):
+    @staticmethod
+    def ask_question():
+        topic = types[randint(0, 17)]
+        question = ["What attack types are super\neffective against " + topic + " Pokemon?",
+                    "What attack types are not very\neffective against " + topic + " Pokemon?",
+                    "What Pokemon types are\nstrong against " + topic + " attacks?",
+                    "What Pokemon types are\nweak against " + topic + " attacks?"]
+        return question[randint(0, 3)]
+
+    @staticmethod
+    def check_answer(answer, answers):
+        if answer not in answers:
+            return
     pass
 
 
