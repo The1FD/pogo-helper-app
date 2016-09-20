@@ -789,17 +789,23 @@ class DPSScreen(Screen):
 class QuizScreen(Screen):
     @staticmethod
     def ask_question():
-        topic = types[randint(0, 17)]
-        question = ["What attack types are super\neffective against " + topic + " Pokemon?",
-                    "What attack types are not very\neffective against " + topic + " Pokemon?",
-                    "What Pokemon types are\nstrong against " + topic + " attacks?",
-                    "What Pokemon types are\nweak against " + topic + " attacks?"]
-        return question[randint(0, 3)]
+        random = randint(0, 17)
+        topic = types[random]
+        question = ["What attack types are\nsuper effective against\n" + topic + " Pokemon?",
+                    "What attack types are\nnot very effective against\n" + topic + " Pokemon?",
+                    "What Pokemon types\nare strong against\n" + topic + " attacks?",
+                    "What Pokemon types\nare weak against\n" + topic + " attacks?"]
+        random = randint(0, 3)
+        return question[random]
 
     @staticmethod
     def check_answer(answer, answers):
         if answer not in answers:
             return
+    pass
+
+
+class CheatScreen(Screen):
     pass
 
 
