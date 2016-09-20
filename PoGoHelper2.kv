@@ -2,7 +2,7 @@
 
 <BoxLayout>:
     padding: 2
-    spacing: 2
+    spacing: 0
     height: 0
 
 <Button>:
@@ -37,6 +37,7 @@ ScreenManagement:
     TypeScreen:
     DPSScreen:
     QuizScreen:
+    CheatScreen:
 
 
 <TypeScreen>:
@@ -290,18 +291,15 @@ ScreenManagement:
             Image:
                 source: "blank.png"
         BoxLayout:
-            BoxLayout:
-                Button:
-                    font_size: 16
-                    color: 1,0,0,1
-                    text: "Check\nanswer"
-                Label:
-                    font_size: 24
-                    text: "F-"
+            Button:
+                font_size: 16
+                color: 1,1,0,1
+                text: "Check\nanswers"
+                on_release: app.root.current = "cheat"
             Button:
                 font_size: 16
                 color: 1,0,0,1
-                text: "New question"
+                text: "New\nquestion"
                 on_press: question.text = root.ask_question()
                 on_press: normal.source = "normal.png"
                 on_press: fire.source = "fire.png"
@@ -322,3 +320,12 @@ ScreenManagement:
                 on_press: steel.source = "steel.png"
                 on_press: fairy.source = "fairy.png"
                 on_press: none.source = "none.png"
+
+<CheatScreen>:
+    name: "cheat"
+    Button:
+        size_hint_x: 1
+        size_hint_y: 1
+        on_release: app.root.current = "quiz"
+    Image:
+        source: "cheatsheet.png"
