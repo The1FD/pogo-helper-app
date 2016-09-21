@@ -140,7 +140,7 @@ ScreenManagement:
         Label:
             id: question
             pos_hint: {"top": 0.8}
-            text: root.ask_question()
+            text: "Click the \"New\nquestion\" button"
         GridLayout:
             pos_hint: {"top": 0.6}
             size_hint_y: 0.4
@@ -252,8 +252,28 @@ ScreenManagement:
             Image:
                 id: none
                 source: "none.png"
-            Image:
-                source: "blank.png"
+            Button:
+                text: "reset"
+                color: 0,0,0,1
+                on_press: normal.source = "normal.png"
+                on_press: fire.source = "fire.png"
+                on_press: water.source = "water.png"
+                on_press: grass.source = "grass.png"
+                on_press: electric.source = "electric.png"
+                on_press: ice.source = "ice.png"
+                on_press: fighting.source = "fighting.png"
+                on_press: poison.source = "poison.png"
+                on_press: ground.source = "ground.png"
+                on_press: flying.source = "flying.png"
+                on_press: psychic.source = "psychic.png"
+                on_press: bug.source = "bug.png"
+                on_press: rock.source = "rock.png"
+                on_press: ghost.source = "ghost.png"
+                on_press: dragon.source = "dragon.png"
+                on_press: dark.source = "dark.png"
+                on_press: steel.source = "steel.png"
+                on_press: fairy.source = "fairy.png"
+                on_press: none.source = "none.png"
         BoxLayout:
             Button:
                 font_size: 16
