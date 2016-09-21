@@ -146,83 +146,47 @@ ScreenManagement:
             size_hint_y: 0.4
             cols: 4
             Button:
-                on_press: normal.source = "blank.png"
-                on_press: none.source = "none.png"
+                on_press: normal.source = root.check_answer("normal")
             Button:
-                on_press: fire.source = "blank.png"
-                on_press: none.source = "none.png"
+                on_press: fire.source = root.check_answer("fire")
             Button:
-                on_press: water.source = "blank.png"
-                on_press: none.source = "none.png"
+                on_press: water.source = root.check_answer("water")
             Button:
-                on_press: grass.source = "blank.png"
-                on_press: none.source = "none.png"
+                on_press: grass.source = root.check_answer("grass")
 
             Button:
-                on_press: electric.source = "blank.png"
-                on_press: none.source = "none.png"
+                on_press: electric.source = root.check_answer("electric")
             Button:
-                on_press: ice.source = "blank.png"
-                on_press: none.source = "none.png"
+                on_press: ice.source = root.check_answer("ice")
             Button:
-                on_press: fighting.source = "blank.png"
-                on_press: none.source = "none.png"
+                on_press: fighting.source = root.check_answer("fighting")
             Button:
-                on_press: poison.source = "blank.png"
-                on_press: none.source = "none.png"
+                on_press: poison.source = root.check_answer("poison")
 
             Button:
-                on_press: ground.source = "blank.png"
-                on_press: none.source = "none.png"
+                on_press: ground.source = root.check_answer("ground")
             Button:
-                on_press: flying.source = "blank.png"
-                on_press: none.source = "none.png"
+                on_press: flying.source = root.check_answer("flying")
             Button:
-                on_press: psychic.source = "blank.png"
-                on_press: none.source = "none.png"
+                on_press: psychic.source = root.check_answer("psychic")
             Button:
-                on_press: bug.source = "blank.png"
-                on_press: none.source = "none.png"
+                on_press: bug.source = root.check_answer("bug")
 
             Button:
-                on_press: rock.source = "blank.png"
-                on_press: none.source = "none.png"
+                on_press: rock.source = root.check_answer("rock")
             Button:
-                on_press: ghost.source = "blank.png"
-                on_press: none.source = "none.png"
+                on_press: ghost.source = root.check_answer("ghost")
             Button:
-                on_press: dragon.source = "blank.png"
-                on_press: none.source = "none.png"
+                on_press: dragon.source = root.check_answer("dragon")
             Button:
-                on_press: dark.source = "blank.png"
-                on_press: none.source = "none.png"
+                on_press: dark.source = root.check_answer("dark")
 
             Button:
-                on_press: steel.source = "blank.png"
-                on_press: none.source = "none.png"
+                on_press: steel.source = root.check_answer("steel")
             Button:
-                on_press: fairy.source = "blank.png"
-                on_press: none.source = "none.png"
+                on_press: fairy.source = root.check_answer("fairy")
             Button:
-                on_press: none.source = "blank.png"
-                on_press: normal.source = "normal.png"
-                on_press: fire.source = "fire.png"
-                on_press: water.source = "water.png"
-                on_press: grass.source = "grass.png"
-                on_press: electric.source = "electric.png"
-                on_press: ice.source = "ice.png"
-                on_press: fighting.source = "fighting.png"
-                on_press: poison.source = "poison.png"
-                on_press: ground.source = "ground.png"
-                on_press: flying.source = "flying.png"
-                on_press: psychic.source = "psychic.png"
-                on_press: bug.source = "bug.png"
-                on_press: rock.source = "rock.png"
-                on_press: ghost.source = "ghost.png"
-                on_press: dragon.source = "dragon.png"
-                on_press: dark.source = "dark.png"
-                on_press: steel.source = "steel.png"
-                on_press: fairy.source = "fairy.png"
+                on_press: none.source = root.check_answer("none")
         GridLayout:
             pos_hint: {"top": 0.6}
             size_hint_y: 0.4
@@ -293,12 +257,12 @@ ScreenManagement:
         BoxLayout:
             Button:
                 font_size: 16
-                color: 1,1,0,1
+                color: 1,0,0,1
                 text: "Check\nanswers"
                 on_release: app.root.current = "cheat"
             Button:
                 font_size: 16
-                color: 1,0,0,1
+                color: 1,1,0,1
                 text: "New\nquestion"
                 on_press: question.text = root.ask_question()
                 on_press: normal.source = "normal.png"
