@@ -812,7 +812,9 @@ class QuizScreen(Screen):
 
     @staticmethod
     def check_answer(answer):
-        if answer in answers or len(answers) == 0 and answer == "none":
+        print(answers)
+        global answers
+        if answer in answers:
             return "right.png"
         else:
             return "wrong.png"
