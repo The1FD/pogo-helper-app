@@ -786,6 +786,9 @@ class DPSScreen(Screen):
     pass
 
 
+answers = []
+
+
 class QuizScreen(Screen):
     @staticmethod
     def ask_question():
@@ -796,12 +799,23 @@ class QuizScreen(Screen):
                     "What Pokemon types\nare strong against\n" + topic + " attacks?",
                     "What Pokemon types\nare weak against\n" + topic + " attacks?"]
         random = randint(0, 3)
+        global answers
+        if random == 0:
+            answers = get_type(topic).weak
+        elif random == 1:
+            answers = get_type(topic).strong
+        elif random == 2:
+            answers = get_type(topic).not_very_eff
+        else:
+            answers = get_type(topic).super_eff
         return question[random]
 
     @staticmethod
-    def check_answer(answer, answers):
-        if answer not in answers:
-            return
+    def check_answer(answer):
+        if answer in answers or len(answers) == 0 and answer == "none":
+            return "right.png"
+        else:
+            return "wrong.png"
     pass
 
 
