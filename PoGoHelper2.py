@@ -785,8 +785,9 @@ class DPSScreen(Screen):
         return calculate_dps(pokemon, quick_move, charge_move, opponent)
     pass
 
-
-answers = []
+answers = [""]
+guesses = []
+failed = False
 
 
 class QuizScreen(Screen):
@@ -798,8 +799,10 @@ class QuizScreen(Screen):
                     "What attack types are\nnot very effective against\n" + topic + " Pokemon?",
                     "What Pokemon types\nare strong against\n" + topic + " attacks?",
                     "What Pokemon types\nare weak against\n" + topic + " attacks?"]
+        global answers, guesses, failed
+        guesses = []
+        failed = False
         random = randint(0, 3)
-        global answers
         if random == 0:
             answers = get_type(topic).weak
         elif random == 1:
@@ -812,12 +815,21 @@ class QuizScreen(Screen):
 
     @staticmethod
     def check_answer(answer):
-        print(answers)
-        global answers
-        if answer in answers:
+        global guesses, answers, failed
+        guesses.append(answer)
+        if answer in answers or (len(answers) is 0 and answer is "none"):
             return "right.png"
         else:
+            failed = True
             return "wrong.png"
+
+    @staticmethod
+    def congratulations(nothing):
+        global answers, guesses, failed
+        if len(answers) == len(guesses) and failed is False:
+            return "PERFECT! WOW! COOL!"
+        else:
+            return nothing
     pass
 
 
