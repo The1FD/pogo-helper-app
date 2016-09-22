@@ -147,51 +147,70 @@ ScreenManagement:
             cols: 4
             Button:
                 on_press: normal.source = root.check_answer("normal")
+                on_release: question.text = root.congratulations(question.text)
             Button:
                 on_press: fire.source = root.check_answer("fire")
+                on_release: question.text = root.congratulations(question.text)
             Button:
                 on_press: water.source = root.check_answer("water")
+                on_release: question.text = root.congratulations(question.text)
             Button:
                 on_press: grass.source = root.check_answer("grass")
+                on_release: question.text = root.congratulations(question.text)
 
             Button:
                 on_press: electric.source = root.check_answer("electric")
+                on_release: question.text = root.congratulations(question.text)
             Button:
                 on_press: ice.source = root.check_answer("ice")
+                on_release: question.text = root.congratulations(question.text)
             Button:
                 on_press: fighting.source = root.check_answer("fighting")
+                on_release: question.text = root.congratulations(question.text)
             Button:
                 on_press: poison.source = root.check_answer("poison")
+                on_release: question.text = root.congratulations(question.text)
 
             Button:
                 on_press: ground.source = root.check_answer("ground")
+                on_release: question.text = root.congratulations(question.text)
             Button:
                 on_press: flying.source = root.check_answer("flying")
+                on_release: question.text = root.congratulations(question.text)
             Button:
                 on_press: psychic.source = root.check_answer("psychic")
+                on_release: question.text = root.congratulations(question.text)
             Button:
                 on_press: bug.source = root.check_answer("bug")
+                on_release: question.text = root.congratulations(question.text)
 
             Button:
                 on_press: rock.source = root.check_answer("rock")
+                on_release: question.text = root.congratulations(question.text)
             Button:
                 on_press: ghost.source = root.check_answer("ghost")
+                on_release: question.text = root.congratulations(question.text)
             Button:
                 on_press: dragon.source = root.check_answer("dragon")
+                on_release: question.text = root.congratulations(question.text)
             Button:
                 on_press: dark.source = root.check_answer("dark")
+                on_release: question.text = root.congratulations(question.text)
 
             Button:
                 on_press: steel.source = root.check_answer("steel")
+                on_release: question.text = root.congratulations(question.text)
             Button:
                 on_press: fairy.source = root.check_answer("fairy")
+                on_release: question.text = root.congratulations(question.text)
             Button:
                 on_press: none.source = root.check_answer("none")
+                on_release: question.text = root.congratulations(question.text)
         GridLayout:
             pos_hint: {"top": 0.6}
             size_hint_y: 0.4
             cols: 4
-            Image
+            Image:
                 id: normal
                 source: "normal.png"
             Image:
@@ -278,7 +297,7 @@ ScreenManagement:
             Button:
                 font_size: 16
                 color: 1,0,0,1
-                text: "Check\nanswers"
+                text: "Answer\nsheet"
                 on_release: app.root.current = "cheat"
             Button:
                 font_size: 16
